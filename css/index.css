@@ -1,0 +1,85 @@
+body {
+  max-width: 1440px;
+  background: #1A1A1A;
+}
+.header{
+  background: #0D0D0D;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__image{
+  width: 126px;
+  height: 48px;
+}
+.create-tasks {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -27px;
+}
+.tasks__enter {
+  width: 638px;
+  height: 52px;
+  margin-right: 10px;
+  background: #333333;
+  border: 0;
+  border-radius: 10px;
+  color: #F2F2F2;
+}
+.tasks__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 54px;
+  background: #1E6F9F;
+  color: #F2F2F2;
+  border: 0;
+  border-radius: 10px;
+
+  img {
+    margin-left: 5px;
+  }
+}
+.tasks {
+  width: 736px;
+  min-height: 287px;
+  margin: 50px auto;
+}
+.tasks__header {
+  display: flex;
+  justify-content: space-between;
+}
+.tasks__all {
+  color: #8284FA;
+}
+.tasks__complete {
+  color: #5E60CE;
+}
+.tasks__add-task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 244px;
+
+  img{
+    width: 56px;
+    height: 56px;
+  }
+  p{
+    color: #D9D9D9;
+  }
+}
+.tasks__container {
+
+}
+.tasks__task {
+  min-height: 72px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  background: #333333;
+}

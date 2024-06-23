@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToDo</title>
-  <link rel="stylesheet" href="css/index.css">
-</head>
-<body>
-  <header>
-    <img src="pages/Logo.png" alt="Planner logo">
-  </header>
-  <section>
-    
-  </section>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YaaPlaner</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/index.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <img class="header__image" src="pages/Logo.png" alt="Planner logo" />
+    </header>
+    <section class="create-tasks">
+      <input class="tasks__enter" type="text" placeholder="Enter a new task" id="title" />
+      <button class="tasks__button" id="create">
+        Enter <img src="pages/plus.png" alt="Plus" />
+      </button>
+    </section>
+    <section class="tasks">
+      <div class="tasks__header">
+        <p class="tasks__all">All tasks</p>
+        <p class="tasks__complete">Complete tasks</p>
+      </div>
+      <div class="tasks__add-task">
+        <img src="pages/Clipboard.png" alt="Board" />
+        <p>Add a task list</p>
+      </div>
+      <ul class="tasks__container" id="list">
+        
+      </ul>
+    </section>
+  </body>
 </html>
