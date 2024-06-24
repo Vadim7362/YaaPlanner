@@ -1,15 +1,15 @@
 body {
   max-width: 1440px;
-  background: #1A1A1A;
+  background: #1a1a1a;
 }
-.header{
-  background: #0D0D0D;
+.header {
+  background: #0d0d0d;
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.header__image{
+.header__image {
   width: 126px;
   height: 48px;
 }
@@ -26,7 +26,7 @@ body {
   background: #333333;
   border: 0;
   border-radius: 10px;
-  color: #F2F2F2;
+  color: #f2f2f2;
 }
 .tasks__button {
   display: flex;
@@ -34,15 +34,20 @@ body {
   align-items: center;
   width: 90px;
   height: 54px;
-  background: #1E6F9F;
-  color: #F2F2F2;
+  background: #1e6f9f;
+  color: #f2f2f2;
   border: 0;
   border-radius: 10px;
+  cursor: pointer;
 
   img {
     margin-left: 5px;
   }
 }
+.tasks__button:hover {
+  background: #4ea8de;
+}
+
 .tasks {
   width: 736px;
   min-height: 287px;
@@ -53,10 +58,10 @@ body {
   justify-content: space-between;
 }
 .tasks__all {
-  color: #8284FA;
+  color: #8284fa;
 }
 .tasks__complete {
-  color: #5E60CE;
+  color: #5e60ce;
 }
 .tasks__add-task {
   display: flex;
@@ -65,16 +70,16 @@ body {
   align-items: center;
   min-height: 244px;
 
-  img{
+  img {
     width: 56px;
     height: 56px;
   }
-  p{
-    color: #D9D9D9;
+  p {
+    color: #d9d9d9;
   }
 }
 .tasks__container {
-
+  padding: 0;
 }
 .tasks__task {
   min-height: 72px;
@@ -82,4 +87,45 @@ body {
   justify-content: space-between;
   border-radius: 10px;
   background: #333333;
+  margin-bottom: 5px;
+  color: #f2f2f2;
+}
+.task__complete {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.task__checkbox-done {
+  display: inline-block;
+  width: 17.45px;
+  height: 17.45px;
+  background-image: url(../pages/Layer\ 2.svg);
+  margin: auto 5px;
+  cursor: pointer;
+}
+.task__checkbox-done:hover {
+  opacity: 0.8;
+}
+.task__checkbox-not-done {
+  display: inline-block;
+  width: 17.45px;
+  height: 17.45px;
+  background-image: url(../pages/Layer\ 1.svg);
+  margin: auto 5px;
+  cursor: pointer;
+}
+.task__checkbox-not-done:hover {
+  opacity: 0.8;
+}
+.task__btn {
+  display: inline-block;
+  width: 12.48px;
+  height: 14px;
+  background-image: url(../pages/trash.svg);
+  margin: auto 5px;
+  cursor: pointer;
+}
+.task__btn:hover {
+  background-image: url(../pages/hover=true.svg);
+  width: 24px;
+  height: 24px;
 }
