@@ -23,11 +23,12 @@ function addTask(e) {
   };
 
   tasks.push(newTask);
-  console.log(tasks);
 
   const textCompleted = newTask.done ? "task__complete" : "";
 
-  const btnCompleted = newTask.done ? "task__checkbox-not-done completed" : "task__checkbox-not-done"
+  const btnCompleted = newTask.done
+    ? "task__checkbox-not-done completed"
+    : "task__checkbox-not-done";
 
   const taskHTML = `
       <li id="${newTask.id}" class="tasks__task">
@@ -49,8 +50,17 @@ function addTask(e) {
 
 function deleteTask(e) {
   if (e.target.dataset.type !== "remove") return;
+
   const parenNode = e.target.closest(".tasks__task");
+
+  const taskId = Number(parenNode.id);
+
+  const index = tasks.findIndex((task) => task.id === taskId);
+
+  tasks.splice(index, 1);
+
   parenNode.remove();
+
   if (tasksList.children.length === 0) {
     emptyList.classList.remove("none");
   }
