@@ -1,9 +1,11 @@
 const todoForm = document.querySelector("#form");
 const taskInput = document.querySelector("#taskInput");
 const tasksList = document.querySelector("#tasksList");
-const emptyList = document.querySelector("#emptyList")
+const emptyList = document.querySelector("#emptyList");
 
 form.addEventListener("submit", addTask);
+
+tasksList.addEventListener("click", deleteTask);
 
 function addTask(e) {
   e.preventDefault();
@@ -17,8 +19,18 @@ function addTask(e) {
   tasksList.insertAdjacentHTML("beforeend", taskHTML);
   taskInput.value = "";
   taskInput.focus();
-  if(tasksList.children.length !== 0) {
-    emptyList.classList.add('none')
+  if (tasksList.children.length !== 0) {
+    emptyList.classList.add("none");
+  }
+}
+
+function deleteTask(e) {
+  if (e.target.dataset.type === "remove") {
+    const parenNode = e.target.closest(".tasks__task");
+    parenNode.remove();
+  }
+  if (tasksList.children.length === 0) {
+    emptyList.classList.remove("none");
   }
 }
 
