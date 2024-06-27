@@ -3,6 +3,8 @@ const taskInput = document.querySelector("#taskInput");
 const tasksList = document.querySelector("#tasksList");
 const emptyList = document.querySelector("#emptyList");
 
+let tasks = [];
+
 form.addEventListener("submit", addTask);
 
 tasksList.addEventListener("click", deleteTask);
