@@ -110,7 +110,7 @@ body {
   text-decoration: line-through;
   opacity: 0.5;
 }
-.task__checkbox-done {
+/* .task__checkbox-done {
   display: inline-block;
   width: 17.45px;
   height: 17.45px;
@@ -120,6 +120,9 @@ body {
 }
 .task__checkbox-done:hover {
   opacity: 0.8;
+} */
+.completed {
+  background-image: url(../pages/Layer\ 2.svg) !important;
 }
 .task__checkbox-not-done {
   display: inline-block;

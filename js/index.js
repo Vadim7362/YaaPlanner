@@ -7,6 +7,8 @@ form.addEventListener("submit", addTask);
 
 tasksList.addEventListener("click", deleteTask);
 
+tasksList.addEventListener("click", doneTask);
+
 function addTask(e) {
   e.preventDefault();
   const taskText = taskInput.value;
@@ -31,6 +33,16 @@ function deleteTask(e) {
   }
   if (tasksList.children.length === 0) {
     emptyList.classList.remove("none");
+  }
+}
+
+function doneTask(e) {
+  if (e.target.dataset.type === "toggle") {
+    const parenNode = e.target.closest(".tasks__task");
+    const taskTitle = parenNode.querySelector("p");
+    const taskButton = parenNode.querySelector(".task__checkbox-not-done");
+    taskTitle.classList.toggle("task__complete");
+    taskButton.classList.toggle("completed");
   }
 }
 
