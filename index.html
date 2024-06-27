@@ -13,10 +13,17 @@
       <img class="header__image" src="pages/Logo.png" alt="Planner logo" />
     </header>
     <section class="create-tasks">
-      <input class="tasks__enter" type="text" placeholder="Enter a new task" id="title" />
-      <button class="tasks__button" id="create">
-        Enter <img src="pages/plus.png" alt="Plus" />
-      </button>
+      <form class="create__form" id="form">
+        <input
+          class="tasks__enter"
+          type="text"
+          placeholder="Enter a new task"
+          id="taskInput"
+        />
+        <button class="tasks__button" id="create">
+          Enter <img src="pages/plus.png" alt="Plus" />
+        </button>
+      </form>
     </section>
     <section class="tasks">
       <div class="tasks__header">
@@ -26,12 +33,14 @@
         </div>
         <div class="completed__tasks-container">
           <p class="tasks__completed">Completed tasks</p>
-          <span class="tasks__count" id="tasks__completed">0</span>
+          <span class="tasks__count" id="tasksCompleted">0</span>
         </div>
       </div>
-      <ul class="tasks__container" id="list">
-        
-      </ul>
+      <div class="tasks__add-task" id="emptyList">
+        <img src="pages/Clipboard.png" alt="Board" />
+        <p>Add a task list</p>
+      </div>
+      <ul class="tasks__container" id="tasksList"></ul>
     </section>
   </body>
 </html>

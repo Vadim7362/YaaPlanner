@@ -19,6 +19,9 @@ body {
   position: relative;
   top: -27px;
 }
+.create__form {
+  display: flex;
+}
 .tasks__enter {
   width: 638px;
   height: 52px;
@@ -52,6 +55,9 @@ body {
   width: 736px;
   min-height: 287px;
   margin: 50px auto;
+}
+.none {
+  display: none !important;
 }
 .tasks__header {
   display: flex;
