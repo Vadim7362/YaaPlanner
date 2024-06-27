@@ -57,10 +57,20 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.all__tasks-container {
+  display: flex;
+}
 .tasks__all {
   color: #8284fa;
 }
-.tasks__complete {
+.completed__tasks-container {
+  display: flex;
+}
+.tasks__completed {
+  color: #5e60ce;
+}
+.tasks__count {
+  margin: auto 10px;
   color: #5e60ce;
 }
 .tasks__add-task {

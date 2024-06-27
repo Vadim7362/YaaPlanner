@@ -20,8 +20,14 @@
     </section>
     <section class="tasks">
       <div class="tasks__header">
-        <p class="tasks__all">All tasks</p>
-        <p class="tasks__complete">Complete tasks</p>
+        <div class="all__tasks-container">
+          <p class="tasks__all">All tasks</p>
+          <span class="tasks__count" id="tasks__total">0</span>
+        </div>
+        <div class="completed__tasks-container">
+          <p class="tasks__completed">Completed tasks</p>
+          <span class="tasks__count" id="tasks__completed">0</span>
+        </div>
       </div>
       <ul class="tasks__container" id="list">
         
