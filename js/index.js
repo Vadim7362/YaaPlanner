@@ -13,16 +13,35 @@ tasksList.addEventListener("click", doneTask);
 
 function addTask(e) {
   e.preventDefault();
+
   const taskText = taskInput.value;
+
+  const newTask = {
+    id: Date.now(),
+    text: taskText,
+    done: false,
+  };
+
+  tasks.push(newTask);
+  console.log(tasks);
+
+  const textCompleted = newTask.done ? "task__complete" : "";
+
+  const btnCompleted = newTask.done ? "task__checkbox-not-done completed" : "task__checkbox-not-done"
+
   const taskHTML = `
-      <li class="tasks__task">
-        <span class="task__checkbox-not-done" data-type="toggle"></span>
-        <p class="">${taskText}</p>
+      <li id="${newTask.id}" class="tasks__task">
+        <span class="${btnCompleted}" data-type="toggle"></span>
+        <p class="${textCompleted}">${newTask.text}</p>
         <span class="task__btn" data-type="remove"></span>
       </li>`;
+
   tasksList.insertAdjacentHTML("beforeend", taskHTML);
+
   taskInput.value = "";
+
   taskInput.focus();
+
   if (tasksList.children.length !== 0) {
     emptyList.classList.add("none");
   }
