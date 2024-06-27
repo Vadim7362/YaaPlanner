@@ -27,23 +27,21 @@ function addTask(e) {
 }
 
 function deleteTask(e) {
-  if (e.target.dataset.type === "remove") {
-    const parenNode = e.target.closest(".tasks__task");
-    parenNode.remove();
-  }
+  if (e.target.dataset.type !== "remove") return;
+  const parenNode = e.target.closest(".tasks__task");
+  parenNode.remove();
   if (tasksList.children.length === 0) {
     emptyList.classList.remove("none");
   }
 }
 
 function doneTask(e) {
-  if (e.target.dataset.type === "toggle") {
-    const parenNode = e.target.closest(".tasks__task");
-    const taskTitle = parenNode.querySelector("p");
-    const taskButton = parenNode.querySelector(".task__checkbox-not-done");
-    taskTitle.classList.toggle("task__complete");
-    taskButton.classList.toggle("completed");
-  }
+  if (e.target.dataset.type !== "toggle") return;
+  const parenNode = e.target.closest(".tasks__task");
+  const taskTitle = parenNode.querySelector("p");
+  const taskButton = parenNode.querySelector(".task__checkbox-not-done");
+  taskTitle.classList.toggle("task__complete");
+  taskButton.classList.toggle("completed");
 }
 
 // ГОВНОКОД
