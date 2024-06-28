@@ -68,10 +68,21 @@ function deleteTask(e) {
 
 function doneTask(e) {
   if (e.target.dataset.type !== "toggle") return;
+
   const parenNode = e.target.closest(".tasks__task");
+
+  const taskId = Number(parenNode.id);
+
+  const task = tasks.find((task) => task.id === taskId);
+
+  task.done = !task.done;
+
   const taskTitle = parenNode.querySelector("p");
+
   const taskButton = parenNode.querySelector(".task__checkbox-not-done");
+
   taskTitle.classList.toggle("task__complete");
+
   taskButton.classList.toggle("completed");
 }
 
