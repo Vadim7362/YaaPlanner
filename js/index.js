@@ -4,6 +4,12 @@ const tasksList = document.querySelector("#tasksList");
 const emptyList = document.querySelector("#emptyList");
 
 let tasks = [];
+
+if (localStorage.getItem("tasks")) {
+  tasks = JSON.parse(localStorage.getItem("tasks"));
+  tasks.forEach((task) => renderTask(task));
+}
+
 checkEmptyList();
 
 form.addEventListener("submit", addTask);
@@ -25,20 +31,9 @@ function addTask(e) {
 
   tasks.push(newTask);
 
-  const textCompleted = newTask.done ? "task__complete" : "";
+  saveToLocalStorage();
 
-  const btnCompleted = newTask.done
-    ? "task__checkbox-not-done completed"
-    : "task__checkbox-not-done";
-
-  const taskHTML = `
-      <li id="${newTask.id}" class="tasks__task">
-        <span class="${btnCompleted}" data-type="toggle"></span>
-        <p class="${textCompleted}">${newTask.text}</p>
-        <span class="task__btn" data-type="remove"></span>
-      </li>`;
-
-  tasksList.insertAdjacentHTML("beforeend", taskHTML);
+  renderTask(newTask);
 
   taskInput.value = "";
 
@@ -58,6 +53,8 @@ function deleteTask(e) {
 
   tasks.splice(index, 1);
 
+  saveToLocalStorage();
+
   parenNode.remove();
 
   checkEmptyList();
@@ -73,6 +70,8 @@ function doneTask(e) {
   const task = tasks.find((task) => task.id === taskId);
 
   task.done = !task.done;
+
+  saveToLocalStorage();
 
   const taskTitle = parenNode.querySelector("p");
 
@@ -95,9 +94,30 @@ function checkEmptyList() {
   }
 
   if (tasks.length > 0) {
-    const emptyListEl = document.querySelector("emptyList");
-    emptyListEl ? emptyListEl.remove : null;
+    const emptyListEl = document.querySelector("#emptyList");
+    emptyListEl ? emptyListEl.remove() : null;
   }
+}
+
+function saveToLocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function renderTask(task) {
+  const textCompleted = task.done ? "task__complete" : "";
+
+  const btnCompleted = task.done
+    ? "task__checkbox-not-done completed"
+    : "task__checkbox-not-done";
+
+  const taskHTML = `
+      <li id="${task.id}" class="tasks__task">
+        <span class="${btnCompleted}" data-type="toggle"></span>
+        <p class="${textCompleted}">${task.text}</p>
+        <span class="task__btn" data-type="remove"></span>
+      </li>`;
+
+  tasksList.insertAdjacentHTML("beforeend", taskHTML);
 }
 
 // ГОВНОКОД
