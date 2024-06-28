@@ -4,6 +4,7 @@ const tasksList = document.querySelector("#tasksList");
 const emptyList = document.querySelector("#emptyList");
 
 let tasks = [];
+checkEmptyList();
 
 form.addEventListener("submit", addTask);
 
@@ -43,9 +44,7 @@ function addTask(e) {
 
   taskInput.focus();
 
-  if (tasksList.children.length !== 0) {
-    emptyList.classList.add("none");
-  }
+  checkEmptyList();
 }
 
 function deleteTask(e) {
@@ -61,9 +60,7 @@ function deleteTask(e) {
 
   parenNode.remove();
 
-  if (tasksList.children.length === 0) {
-    emptyList.classList.remove("none");
-  }
+  checkEmptyList();
 }
 
 function doneTask(e) {
@@ -84,6 +81,23 @@ function doneTask(e) {
   taskTitle.classList.toggle("task__complete");
 
   taskButton.classList.toggle("completed");
+}
+
+function checkEmptyList() {
+  if (tasks.length === 0) {
+    const emptyListHTML = `
+      <div class="tasks__add-task" id="emptyList">
+        <img src="pages/Clipboard.png" alt="Board" />
+        <p>Add a task list</p>
+      </div>
+      `;
+    tasksList.insertAdjacentHTML("afterbegin", emptyListHTML);
+  }
+
+  if (tasks.length > 0) {
+    const emptyListEl = document.querySelector("emptyList");
+    emptyListEl ? emptyListEl.remove : null;
+  }
 }
 
 // ГОВНОКОД
