@@ -2,6 +2,7 @@ const todoForm = document.querySelector("#form");
 const taskInput = document.querySelector("#taskInput");
 const tasksList = document.querySelector("#tasksList");
 const emptyList = document.querySelector("#emptyList");
+const tasksHeader = document.querySelector("#tasksHeader");
 
 let tasks = [];
 
@@ -11,6 +12,8 @@ if (localStorage.getItem("tasks")) {
 }
 
 checkEmptyList();
+
+counterTasks();
 
 form.addEventListener("submit", addTask);
 
@@ -40,6 +43,8 @@ function addTask(e) {
   taskInput.focus();
 
   checkEmptyList();
+
+  counterTasks();
 }
 
 function deleteTask(e) {
@@ -58,6 +63,8 @@ function deleteTask(e) {
   parenNode.remove();
 
   checkEmptyList();
+
+  counterTasks();
 }
 
 function doneTask(e) {
@@ -80,6 +87,8 @@ function doneTask(e) {
   taskTitle.classList.toggle("task__complete");
 
   taskButton.classList.toggle("completed");
+  
+  counterTasks();
 }
 
 function checkEmptyList() {
@@ -118,4 +127,26 @@ function renderTask(task) {
       </li>`;
 
   tasksList.insertAdjacentHTML("beforeend", taskHTML);
+}
+
+function counterTasks() {
+  const delCount = document.getElementById("tasksHeader");
+
+  delCount.innerHTML = "";
+
+  let accessCount = Object.values(tasks).filter(function (el) {
+    return el.done === true;
+  }).length;
+
+  const counterHTML = `
+    <div class="all__tasks-container">
+      <p class="tasks__all">All tasks</p>
+      <span class="tasks__count" id="tasks__total">${tasks.length}</span>
+    </div>
+    <div class="completed__tasks-container">
+      <p class="tasks__completed">Completed tasks</p>
+      <span class="tasks__count" id="tasksCompleted">${accessCount}</span>
+    </div>
+  `;
+  tasksHeader.insertAdjacentHTML("beforeend", counterHTML);
 }
