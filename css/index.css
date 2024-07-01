@@ -110,25 +110,15 @@ body {
   text-decoration: line-through;
   opacity: 0.5;
 }
-/* .task__checkbox-done {
-  display: inline-block;
-  width: 17.45px;
-  height: 17.45px;
-  background-image: url(../pages/Layer\ 2.svg);
-  margin: auto 5px;
-  cursor: pointer;
-}
-.task__checkbox-done:hover {
-  opacity: 0.8;
-} */
+
 .completed {
-  background-image: url(../pages/Layer\ 2.svg) !important;
+  background-image: url(../assets/Layer\ 2.svg) !important;
 }
 .task__checkbox-not-done {
   display: inline-block;
   width: 17.45px;
   height: 17.45px;
-  background-image: url(../pages/Layer\ 1.svg);
+  background-image: url(../assets/Layer\ 1.svg);
   margin: auto 5px;
   cursor: pointer;
 }
@@ -139,12 +129,12 @@ body {
   display: inline-block;
   width: 12.48px;
   height: 14px;
-  background-image: url(../pages/trash.svg);
+  background-image: url(../assets/trash.svg);
   margin: auto 5px;
   cursor: pointer;
 }
 .task__btn:hover {
-  background-image: url(../pages/hover=true.svg);
+  background-image: url(../assets/hover=true.svg);
   width: 24px;
   height: 24px;
 }

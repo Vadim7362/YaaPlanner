@@ -87,7 +87,7 @@ function doneTask(e) {
   taskTitle.classList.toggle("task__complete");
 
   taskButton.classList.toggle("completed");
-  
+
   counterTasks();
 }
 
@@ -95,7 +95,7 @@ function checkEmptyList() {
   if (tasks.length === 0) {
     const emptyListHTML = `
       <div class="tasks__add-task" id="emptyList">
-        <img src="pages/Clipboard.png" alt="Board" />
+        <img src="assets/Clipboard.png" alt="Board" />
         <p>Add a task list</p>
       </div>
       `;
