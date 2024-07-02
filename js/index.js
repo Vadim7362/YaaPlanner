@@ -135,7 +135,7 @@ function counterTasks() {
   delCount.innerHTML = "";
 
   let accessCount = Object.values(tasks).filter(function (el) {
-    return el.done === true;
+    return el.done;
   }).length;
 
   const counterHTML = `
